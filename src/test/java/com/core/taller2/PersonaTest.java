@@ -41,13 +41,16 @@ public class PersonaTest {
 	
 	@Test
 	void testRepositorio() {
-		Long id = 1L;
+		Long id = 100L;
+		
+		Persona personaAgregar = new Persona(id, "pruebaNombre", "pruebaApellido", "20");
+		personaServicio.agregar(personaAgregar);
 		
 		Optional <Persona> result = personaRepositorio.findById(id);
 		
 		Persona persona = result.get();
 		
 		assertThat(persona).isNotNull();
-		assertThat(persona.getNombre()).isEqualTo("Sebastian");
+		assertThat(persona.getNombre()).isEqualTo("pruebaNombre");
 	}
 }
